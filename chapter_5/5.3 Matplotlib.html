@@ -1,0 +1,942 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.3 Matplotlib &#8212; Introducción a la Programación en Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_5/5.3 Matplotlib';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.4 Sympy" href="5.4%20Sympy.html" />
+    <link rel="prev" title="5.2 Numpy" href="5.2%20Numpy.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/portada.webp" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/portada.webp" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introducción a la Programación en Python: Una guía para científicos e ingeníeros.
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_1/Cap%C3%ADtulo%201.%20Preliminares.html">Capítulo 1. Preliminares</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1/1.1%20Representaci%C3%B3n%20de%20la%20informaci%C3%B3n.html">1.1 Representación de la información</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1/1.2%20Introducci%C3%B3n%20a%20la%20programaci%C3%B3n.html">1.2 Introducción a la programación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1/1.3%20Introducci%C3%B3n%20a%20Python.html">1.3 Introducción a Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1/1.4%20Instalaci%C3%B3n%20de%20Python.html">1.4 Instalación de Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1/1.5%20Herramientas%20para%20programar%20en%20Python.html">1.5 Herramientas para programar en Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_2/Cap%C3%ADtulo%202.%20Conceptos%20b%C3%A1sicos.html">Capítulo 2. Conceptos básicos</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_2/2.3%20Funciones.html">2.3 Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_2/2.4%20Colecciones.html">2.4 Colecciones</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_3/Cap%C3%ADtulo%203.%20Estructuras%20de%20control.html">Capítulo 3. Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3/3.1%20Condicionales.html">3.1 Condicionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3/3.2%20Bucles.html">3.2 Bucles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_4/Cap%C3%ADtulo%204.%20Excepciones%2C%20archivos%20y%20m%C3%B3dulos.html">Capítulo 4. Excepciones, archivos y módulos</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4/4.1%20Excepciones.html">4.1 Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4/4.2%20Archivos.html">4.2 Archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4/4.3%20M%C3%B3dulos%20y%20paquetes.html">4.3 Módulos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Cap%C3%ADtulo%205.%20Librerias%20cient%C3%ADficas%20I.html">Capítulo 5. Librerias científicas I</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="5.2%20Numpy.html">5.2 Numpy</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.3 Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.4%20Sympy.html">5.4 Sympy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.5%20Plotly.html">5.5 Plotly</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapter_5/5.3 Matplotlib.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter_5/5.3 Matplotlib.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>5.3 Matplotlib</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis-para-pyplot">Sintáxis para pyplot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-de-graficos">Configuración de gráficos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#titulos-y-texto">Títulos y texto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color">Color</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-graficos">Tipos de gráficos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subgraficas">Subgráficas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos">Ejemplos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graficar-mas-de-una-funcion">Graficar más de una función</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-trigonometricas">Funciones trigonométricas</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="matplotlib">
+<h1>5.3 Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">#</a></h1>
+<hr class="docutils" />
+<div class="warning admonition">
+<p class="admonition-title">Advertencia</p>
+<p>Este libro está actualmente en proceso de desarrollo, por lo que es posible que algunos de sus contenidos aún no estén disponibles. Agradecemos su comprensión mientras trabajamos en completarlo y mejorar su contenido.</p>
+</div>
+<p>Como una herramienta visual, Matplotlib es una de las librerías de Python orientada a la representación dinámica y estática a partir de datos proporcionados.</p>
+<p>Matplotlib cuenta con una extensa cantidad de módulos, sin embargo, nos enfocaremos en el el módulo <em><strong>pyplot</strong></em> el cual está diseñado para casos sencillos de gráficos en programación y para que éstos sean interactivos. Éste módulo nos permite generar gráficas en dos ejes a partir de la información que brinda el usuario por medio de <em>listas (o arrays)</em>, por lo que también se emplea la extensión matemática de Numpy.</p>
+<hr class="docutils" />
+<div class="section" id="sintaxis-para-pyplot">
+<h2>Sintáxis para pyplot<a class="headerlink" href="#sintaxis-para-pyplot" title="Permalink to this headline">#</a></h2>
+<p>Con la finalidad de mostrar trazos en la pantalla, Matplotlib se basa en crear objetos llamados figuras, que son ilustraciones completas y cuyas propiedades se pueden modificar con el objetivo de que el usurio personalice la graficación a su gusto.</p>
+<p>En esta librería, una figura es una ilustración completa y cada uno de los trazados de dicha figura se denomina eje. Crear una gráfica es el acto de hacer plotting</p>
+<p>Como primer recurso, se debe importar la librería Numpy para el manejo de listas y el módulo <em><strong>pyplot</strong></em> de matplotlib para la creación de trazos, éste último con regularidad se encontrará renombrado como <em><strong>plt</strong></em>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<p>La parte fundamental de este código es crear una figura que tenga dos ejes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> 
+</pre></div>
+</div>
+<p><em><strong>Nota:</strong> ¡Preste atención que en el código anterior, “<strong>fig</strong>” va seguido de una <strong>coma( <em><code class="docutils literal notranslate"><span class="pre">,</span></code></em> )</strong>!</em></p>
+<p>Donde:</p>
+<ul class="simple">
+<li><p>*<code class="docutils literal notranslate"><span class="pre">fig,ax</span></code>*⟶Es el operador que crea una figura (<strong>fig</strong>) con ejes (<strong>ax</strong>, por la abreviación en inglés de “<em>axes</em>”).</p></li>
+<li><p>*<code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code>*⟶Es el comando de pyplot para generar subgráficas.</p></li>
+</ul>
+<p>Y por último, la línea de código que se encargará de graficar será la siguiente:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">lista</span> <span class="n">en</span> <span class="n">x</span><span class="p">],[</span><span class="n">lista</span> <span class="n">en</span> <span class="n">y</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Donde:</p>
+<ul class="simple">
+<li><p>*<code class="docutils literal notranslate"><span class="pre">ax.plot()</span></code>*⟶Es la función que se encargará de realizar los trazos dentro de los ejes estándares.</p></li>
+<li><p>*<code class="docutils literal notranslate"><span class="pre">([lista</span> <span class="pre">en</span> <span class="pre">x],[lista</span> <span class="pre">en</span> <span class="pre">y])</span></code>*⟶Son las coordenadas en <em><code class="docutils literal notranslate"><span class="pre">x</span></code></em> y en <em><code class="docutils literal notranslate"><span class="pre">y</span></code></em>, cuyos resultados se obtienen de listas.</p></li>
+</ul>
+<p>El uso de las listas es equivalente a la tabulación para una gráfica manual; donde las coordenadas quedan definidas por la correspondencia directa entre <em><code class="docutils literal notranslate"><span class="pre">x</span></code></em> y <em><code class="docutils literal notranslate"><span class="pre">y</span></code></em>. Es decir, supongamos la siguiente relación:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-left head"><p>x</p></th>
+<th class="text-left head"><p>y</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>-3</p></td>
+<td class="text-left"><p>7</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>-2</p></td>
+<td class="text-left"><p>5</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>-1</p></td>
+<td class="text-left"><p>3</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>0</p></td>
+<td class="text-left"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>1</p></td>
+<td class="text-left"><p>2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>2</p></td>
+<td class="text-left"><p>6</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>3</p></td>
+<td class="text-left"><p>8</p></td>
+</tr>
+</tbody>
+</table>
+<p>Cuando se grafique, los puntos que se tomarán serán <em><code class="docutils literal notranslate"><span class="pre">(-3,7),(-2,5),(-1,3),(0,0),(1,2),(2,6),(3,8)</span></code></em>. Por otro lado, gracias a lo visto en temas pasados, sabemos que, tanto la columna de <em><code class="docutils literal notranslate"><span class="pre">x</span></code></em> como <em><code class="docutils literal notranslate"><span class="pre">y</span></code></em> pueden expresarse en forma de listas, siendo estas <em><code class="docutils literal notranslate"><span class="pre">x=</span></code>[-3,-2,-1,0,1,2,3]<code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">y</span> <span class="pre">*</span></code>y=[7,5,3,0,2,6,8]<code class="docutils literal notranslate"><span class="pre">*.</span> <span class="pre">Por</span> <span class="pre">lo</span> <span class="pre">que,</span> <span class="pre">al</span> <span class="pre">retomar</span> <span class="pre">la</span> <span class="pre">instrucción</span> <span class="pre">**</span></code>ax.plot([lista en x],[lista en y])<code class="docutils literal notranslate"><span class="pre">**,</span> <span class="pre">obtendremos</span> <span class="pre">una</span> <span class="pre">relación</span> <span class="pre">de</span> <span class="pre">los</span> <span class="pre">puntos</span> <span class="pre">**</span></code>([-3,-2,-1,0,1,2,3],[7,5,3,0,2,6,8])`</em>* tiene ahora una correspondencia respectiva.</p>
+<p>De esta forma, nuestro código completo quedaría como:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8d08b903a0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/3511e11765446fed8afa7522d6e2d10d1ddf72098c73154bcc6bdff494d5e396.png" src="../_images/3511e11765446fed8afa7522d6e2d10d1ddf72098c73154bcc6bdff494d5e396.png" />
+</div>
+</div>
+<p>Lo cual, nos permite concluir nuestro primer ejemplo.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="configuracion-de-graficos">
+<h2>Configuración de gráficos<a class="headerlink" href="#configuracion-de-graficos" title="Permalink to this headline">#</a></h2>
+<p>Hasta el momento, conocemos la sintáxis básica que nos permite nada más que graficar. Sin embargo, es posible modificar las propiedades de esta para brindar más información o ser más específicos con ellos; pyplot cuenta con más comandos que nos permiten esto, los cuales, no importa el orden en el que se coloquen, solo asegurándose la intrucción sea declarada posterior a la creación de la figura:</p>
+<ul class="simple">
+<li><p><em><code class="docutils literal notranslate"><span class="pre">ax.grid()</span></code></em>: Esta función crea una cuadrícula o rejilla para la figura.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8d00aa52b0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/7f20063455439b42110a7232d12621744788209cebbc8e7bc0de284c9fea6964.png" src="../_images/7f20063455439b42110a7232d12621744788209cebbc8e7bc0de284c9fea6964.png" />
+</div>
+</div>
+<div class="section" id="titulos-y-texto">
+<h3>Títulos y texto<a class="headerlink" href="#titulos-y-texto" title="Permalink to this headline">#</a></h3>
+<p>Estos comandos toman como argumento cadenas de caracteres con el principal propósito de imprimirlos en la figura:</p>
+<ul class="simple">
+<li><p><em><code class="docutils literal notranslate"><span class="pre">ax.set_tittle(&quot;Título</span> <span class="pre">de</span> <span class="pre">la</span> <span class="pre">gráfica&quot;)</span></code></em>: Con este comando, se le puede dar un título a la gráfica.</p></li>
+<li><p><em><code class="docutils literal notranslate"><span class="pre">ax.set_xlable(&quot;Nombre</span> <span class="pre">eje</span> <span class="pre">x&quot;)</span></code></em> y <em><code class="docutils literal notranslate"><span class="pre">ax.set_ylable(&quot;Nombre</span> <span class="pre">eje</span> <span class="pre">y&quot;)</span></code></em>: Ambas cumplen la misma función de darle un título a sus respectivos ejes a partir de una cadena de caracteres dada.</p></li>
+<li><p><em><code class="docutils literal notranslate"><span class="pre">ax.plot(argumento_1,argumento_2,label=&quot;Nombre</span> <span class="pre">del</span> <span class="pre">trazo&quot;)</span></code></em> y <em><code class="docutils literal notranslate"><span class="pre">ax.legend()</span></code></em>: El primero es una extención de la función <em><code class="docutils literal notranslate"><span class="pre">ax.plot()</span></code></em>, cuyo tercer argumento se encarga de otorgarle un nombre a la función graficada, sin embargo, ésta no se imprimirá sin la función <em><strong><code class="docutils literal notranslate"><span class="pre">ax.legend()</span></code></strong></em>.</p></li>
+<li><p><em><code class="docutils literal notranslate"><span class="pre">ax.text(</span> <span class="pre">Posición</span> <span class="pre">en</span> <span class="pre">x</span> <span class="pre">,</span> <span class="pre">posición</span> <span class="pre">en</span> <span class="pre">y</span> <span class="pre">,</span> <span class="pre">&quot;Texto&quot;</span> <span class="pre">,</span> <span class="pre">fontsize</span> <span class="pre">=</span> <span class="pre">n</span> <span class="pre">)</span></code></em>: Por este medio, será posible escribir cadenas de caracteres en cualquier punto especificado en la figura; la función recibe 4 parámetros, donde <em><strong><code class="docutils literal notranslate"><span class="pre">Posición</span> <span class="pre">en</span> <span class="pre">x,</span> <span class="pre">posición</span> <span class="pre">en</span> <span class="pre">y</span></code></strong></em> hace referencia a la coordenada donde se pondrá la cadena de caracteres, <em><strong><code class="docutils literal notranslate"><span class="pre">&quot;Texto&quot;</span></code></strong></em> es la cadena que se imprimirá, y <em><strong><code class="docutils literal notranslate"><span class="pre">fontsize=n</span></code></strong></em> es el tamaño de fuente que se desea tener.</p></li>
+</ul>
+<p><strong>Nota:</strong> Si en cualquiera de los casos se desea escribir símbolos algebráicos o terminología de LaTeX, en general, debe escribirse de esta manera <em><strong><code class="docutils literal notranslate"><span class="pre">r&quot;Texto</span> <span class="pre">$</span> <span class="pre">_LaTeX_&quot;$</span></code></strong></em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Título de la gráfica&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Nombre del eje x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Nombre del eje y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Nombre del trazo&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span> <span class="c1">#¡Importante para imprimir el título anterior!</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;Texto&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="sa">r</span><span class="s2">&quot;$\int_</span><span class="si">{a}</span><span class="s2">^</span><span class="si">{b}</span><span class="s2">$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="c1">#Para escribir con LaTeX</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0, &#39;$\\int_{a}^{b}$&#39;)
+</pre></div>
+</div>
+<img alt="../_images/512aa60655fe684e7173db65ec202acc5077d780459e4e810ecf8e50a071b4e2.png" src="../_images/512aa60655fe684e7173db65ec202acc5077d780459e4e810ecf8e50a071b4e2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="color">
+<h3>Color<a class="headerlink" href="#color" title="Permalink to this headline">#</a></h3>
+<p>Si se desea cambiar el color de algo impreso en la figura, se puede realizar solo extendiendo el argumento de la función a modificar, es decir:</p>
+<ul class="simple">
+<li><p><em><code class="docutils literal notranslate"><span class="pre">funcion(arg_1,...,color=&quot;Nombre</span> <span class="pre">del</span> <span class="pre">color&quot;)</span></code></em>: La etensión del argumento se puede realizar en cualquiera de los comandos vistos —a excepción de <em><code class="docutils literal notranslate"><span class="pre">ax.legend()</span></code></em>— háblese de la rejilla, las gráficas, el texto, los títulos, etc. Un dato importante es que los colores que acepte este argumento deben estar escritos en <em><strong>inglés</strong></em></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkblue&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Título de la gráfica&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Nombre del eje x&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Nombre del eje y&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Nombre del trazo&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;aqua&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span> <span class="c1">#¡Importante para imprimir el título anterior!</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;Texto&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="sa">r</span><span class="s2">&quot;$\int_</span><span class="si">{a}</span><span class="s2">^</span><span class="si">{b}</span><span class="s2">$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">)</span> <span class="c1">#Para escribir con LaTeX</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0, &#39;$\\int_{a}^{b}$&#39;)
+</pre></div>
+</div>
+<img alt="../_images/97ef538a5783aad9e132d5b0e191d42cde9dd80d0eb281c02cd450958557bdc1.png" src="../_images/97ef538a5783aad9e132d5b0e191d42cde9dd80d0eb281c02cd450958557bdc1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="tipos-de-graficos">
+<h3>Tipos de gráficos<a class="headerlink" href="#tipos-de-graficos" title="Permalink to this headline">#</a></h3>
+<p>A pesar de que hasta el momento solo se ha trabajado con un tipo de trazado, la librería cuenta con otras más opciones.</p>
+<ul class="simple">
+<li><p><em><code class="docutils literal notranslate"><span class="pre">plot(x,y)</span></code></em>: La función que hasta el momento se ha utilizado recibe como parámetros una lista en <em><code class="docutils literal notranslate"><span class="pre">x</span></code></em> y en <em><code class="docutils literal notranslate"><span class="pre">y</span></code></em>.</p></li>
+<li><p><em><code class="docutils literal notranslate"><span class="pre">scatter(x,y)</span></code></em>: Con este comando es posible utilizar la gráfica de dispersión, el cual necesita como argumento, igualmente, una lista en <em><code class="docutils literal notranslate"><span class="pre">x</span></code></em> y en <em><code class="docutils literal notranslate"><span class="pre">y</span></code></em>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Ejemplo $scatter(x,y)$ &quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f8d008193d0&gt;
+</pre></div>
+</div>
+<img alt="../_images/3bf141a498b27ccc3a44ecd581b1c3bfffd043edb4d94b52a33c97e162da5997.png" src="../_images/3bf141a498b27ccc3a44ecd581b1c3bfffd043edb4d94b52a33c97e162da5997.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p><em><code class="docutils literal notranslate"><span class="pre">bar(x,height)</span></code></em>: Podemos utilzar la gráfica de barras con este comando, cuyos parámetros es una lista de <em><code class="docutils literal notranslate"><span class="pre">x</span></code></em> y una algura para casa una que puede tomarse, igualmente, como una lista en <em><code class="docutils literal notranslate"><span class="pre">y</span></code></em>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Ejemplo $bar(x,height)$ &quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BarContainer object of 7 artists&gt;
+</pre></div>
+</div>
+<img alt="../_images/8134847b356ff04e3a03e5701aea2699b4cbf3aaf8cef3ef970702d61f042cd4.png" src="../_images/8134847b356ff04e3a03e5701aea2699b4cbf3aaf8cef3ef970702d61f042cd4.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p><em><code class="docutils literal notranslate"><span class="pre">pie(x)</span></code></em>: Ésta es la característica gráfica de pastel, la cual, a diferencia de las demás, solo necesita una lista en <em><code class="docutils literal notranslate"><span class="pre">x</span></code></em>, el mismo programa se encarga de distribuir la gráfica a partir de los datos. No está de más recordar que al necesitar números contables, debemos evitar el uso de números negativos.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Ejemplo $bar(x,height)$ &quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">pie</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">33</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.patches.Wedge at 0x7f8d0067d310&gt;,
+  &lt;matplotlib.patches.Wedge at 0x7f8d0067d790&gt;,
+  &lt;matplotlib.patches.Wedge at 0x7f8d0067dc10&gt;,
+  &lt;matplotlib.patches.Wedge at 0x7f8d0067df70&gt;],
+ [Text(1.1, 0.0, &#39;&#39;),
+  Text(0.9812752951488188, 0.49709032894495, &#39;&#39;),
+  Text(-0.5199573204881573, 0.9693525596349224, &#39;&#39;),
+  Text(0.025786809449320755, -1.0996977041252858, &#39;&#39;)])
+</pre></div>
+</div>
+<img alt="../_images/20822d978ec85c9561ff56e8dd75ce3efe9c3b397be25324e144b2fec0831f38.png" src="../_images/20822d978ec85c9561ff56e8dd75ce3efe9c3b397be25324e144b2fec0831f38.png" />
+</div>
+</div>
+</div>
+<div class="section" id="subgraficas">
+<h3>Subgráficas<a class="headerlink" href="#subgraficas" title="Permalink to this headline">#</a></h3>
+<p>Las subgráficas en python son gráficas indepentientes creadas en una misma figura. Su manejo se basa solamente en crear más de <em><strong>un par de ejes estándares</strong></em>, es decir, al momento de crear la figura tendremos:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,(</span><span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="n">axn</span><span class="p">)</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">filas</span><span class="p">,</span><span class="n">columnas</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Donde:</p>
+<ul class="simple">
+<li><p><em>´(ax1,ax2,…,axn)´</em>: es la declaración de la cantidad de gráficas —que existen en sus respectivos ejes— que se mostrarán en la pantalla.</p></li>
+<li><p><em>´plt.subplots(filas,columnas)´</em>: es la función de pyplot —<em>que hasta el momento no se ha usado</em>— que nos permite realizar subgráficas y cuyos argumentos son la cantidad de filas y columnas en las que estarán organizados.</p></li>
+</ul>
+<p>El resto de los comandos se mantiene igual, solo es necesario prestar atención a cuál de los ejes estamos llamando (ax1,ax2,…,axn).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1001</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">,</span> <span class="n">ax4</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1">#Configurando las propiedades para la primer gráfica</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Gráfica 1&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1">#Configurando las propiedades para la segunda gráfica</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1">#Configurando las propiedades para la tercera gráfica</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1">#Configurando las propiedades para la cuarta gráfica</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/befce7c0b76a7d888c12bf7f3e0833ffdc0e3471af4022231f8a872401bdb9fb.png" src="../_images/befce7c0b76a7d888c12bf7f3e0833ffdc0e3471af4022231f8a872401bdb9fb.png" />
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="ejemplos">
+<h2>Ejemplos<a class="headerlink" href="#ejemplos" title="Permalink to this headline">#</a></h2>
+<div class="section" id="graficar-mas-de-una-funcion">
+<h3>Graficar más de una función<a class="headerlink" href="#graficar-mas-de-una-funcion" title="Permalink to this headline">#</a></h3>
+<p>Supongamos tres diferentes funciones que se desean graficar:
+$<span class="math notranslate nohighlight">\(f(x)=x\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(g(x)=x^2\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(h(x)=x^3\)</span>$</p>
+<p>Por conocimientos previos, se sabe que el valor que retorne <em><code class="docutils literal notranslate"><span class="pre">f(x)</span></code></em> <em>—tomando el primer ejempo—</em> corresponderá al valor de <em><code class="docutils literal notranslate"><span class="pre">y</span></code></em>; por tanto, nuestra coordenada propuesta estará dada por <em><code class="docutils literal notranslate"><span class="pre">(x,f(x))</span></code></em>. Si bien, tenemos el comportamiento que tendrá cada valor de <em><code class="docutils literal notranslate"><span class="pre">y</span></code></em>, hasta el momento no se ha definido el comportamiento que tendrá <em><code class="docutils literal notranslate"><span class="pre">x</span></code></em>, es decir, no sabemos cuántos valores evauaremos ni en qué límites estarán. Para que el trazo de la función tenga la continuidad que deseamos, <em><code class="docutils literal notranslate"><span class="pre">x</span></code></em> deberá tomar muchos valores consecutivos, dentro de un intervalo establecido (sea grande o pequeño).</p>
+<p>De este modo, definiremos un vector que esté en el intervalo de <em><code class="docutils literal notranslate"><span class="pre">[0,2]</span></code></em> y que contenga <em><code class="docutils literal notranslate"><span class="pre">1000</span></code></em> valores.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Después, crearemos la figura con los ejes estándares (<em><code class="docutils literal notranslate"><span class="pre">fig,ax</span></code></em>), y de manera prosiguiente trazaremos las funciones. En este punto, es importante recalcar que si escribimos más de una vez el comando <em><code class="docutils literal notranslate"><span class="pre">ax.plot()</span></code></em>, el programa lo interpretará como imprimir varias figuras dentro de una misma gráfica.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Por tanto, el código funcional quedará como:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;f(x)&quot;</span><span class="p">)</span> <span class="c1">#f(x)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;g(x)&quot;</span><span class="p">)</span> <span class="c1">#g(x)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;h(x)&quot;</span><span class="p">)</span> <span class="c1">#h(x)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Gráfica de varias funciones&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Eje x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Eje y&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Eje y&#39;)
+</pre></div>
+</div>
+<img alt="../_images/e72a1fc538dce75d9b995081643cbf8309e2a3c15b372a2636aa1d16e5f55021.png" src="../_images/e72a1fc538dce75d9b995081643cbf8309e2a3c15b372a2636aa1d16e5f55021.png" />
+</div>
+</div>
+</div>
+<div class="section" id="funciones-trigonometricas">
+<h3>Funciones trigonométricas<a class="headerlink" href="#funciones-trigonometricas" title="Permalink to this headline">#</a></h3>
+<p>Supongamos en este caso dos funciones trigonométricas:
+$<span class="math notranslate nohighlight">\(f(x)=Sen(x)\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(g(x)=Cos(x)\)</span>$</p>
+<p>Donde el dominio lo definiremos como:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Y en este caso, renombraremos las funciones bajo una variable:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">g</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>De esta manera cuando demos la instrucción de graficar no será necesario volver a escribir la función, y en este caso, le daremos color a las gráficas, al igual que un título:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\sin(x)$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\cos(x)$&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Por tanto, el código funcional quedará como:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1001</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Funciones trigonométricas&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\sin(x)$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\cos(x)$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Eje x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Eje y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8d0052f400&gt;
+</pre></div>
+</div>
+<img alt="../_images/b5169c81bd3977b9ec38473ca3456fad7131f3cc8f17c9ae633105c4b20540ba.png" src="../_images/b5169c81bd3977b9ec38473ca3456fad7131f3cc8f17c9ae633105c4b20540ba.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter_5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="5.2%20Numpy.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">5.2 Numpy</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="5.4%20Sympy.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">5.4 Sympy</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis-para-pyplot">Sintáxis para pyplot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-de-graficos">Configuración de gráficos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#titulos-y-texto">Títulos y texto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color">Color</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-graficos">Tipos de gráficos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subgraficas">Subgráficas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos">Ejemplos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graficar-mas-de-una-funcion">Graficar más de una función</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-trigonometricas">Funciones trigonométricas</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By QuantumByte Academy
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

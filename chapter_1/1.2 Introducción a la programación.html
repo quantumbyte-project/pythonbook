@@ -1,0 +1,655 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.2 Introducción a la programación &#8212; Introducción a la Programación en Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_1/1.2 Introducción a la programación';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.3 Introducción a Python" href="1.3%20Introducci%C3%B3n%20a%20Python.html" />
+    <link rel="prev" title="1.1 Representación de la información" href="1.1%20Representaci%C3%B3n%20de%20la%20informaci%C3%B3n.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/portada.webp" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/portada.webp" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introducción a la Programación en Python: Una guía para científicos e ingeníeros.
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Cap%C3%ADtulo%201.%20Preliminares.html">Capítulo 1. Preliminares</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1.1%20Representaci%C3%B3n%20de%20la%20informaci%C3%B3n.html">1.1 Representación de la información</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2 Introducción a la programación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.3%20Introducci%C3%B3n%20a%20Python.html">1.3 Introducción a Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.4%20Instalaci%C3%B3n%20de%20Python.html">1.4 Instalación de Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.5%20Herramientas%20para%20programar%20en%20Python.html">1.5 Herramientas para programar en Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_2/Cap%C3%ADtulo%202.%20Conceptos%20b%C3%A1sicos.html">Capítulo 2. Conceptos básicos</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_2/2.3%20Funciones.html">2.3 Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_2/2.4%20Colecciones.html">2.4 Colecciones</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_3/Cap%C3%ADtulo%203.%20Estructuras%20de%20control.html">Capítulo 3. Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3/3.1%20Condicionales.html">3.1 Condicionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3/3.2%20Bucles.html">3.2 Bucles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_4/Cap%C3%ADtulo%204.%20Excepciones%2C%20archivos%20y%20m%C3%B3dulos.html">Capítulo 4. Excepciones, archivos y módulos</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4/4.1%20Excepciones.html">4.1 Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4/4.2%20Archivos.html">4.2 Archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4/4.3%20M%C3%B3dulos%20y%20paquetes.html">4.3 Módulos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_5/Cap%C3%ADtulo%205.%20Librerias%20cient%C3%ADficas%20I.html">Capítulo 5. Librerias científicas I</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5/5.2%20Numpy.html">5.2 Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5/5.3%20Matplotlib.html">5.3 Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5/5.4%20Sympy.html">5.4 Sympy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5/5.5%20Plotly.html">5.5 Plotly</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapter_1/1.2 Introducción a la programación.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter_1/1.2 Introducción a la programación.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1.2 Introducción a la programación</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#los-lenguajes-de-programacion">1.2.1 Los lenguajes de programación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lenguajes-de-programacion-de-alto-nivel">Lenguajes de programación de alto nivel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-de-algunos-lenguajes-de-alto-nivel">Características de algunos lenguajes de alto nivel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paradigmas-de-programacion">Paradigmas de programación</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduccion-a-la-programacion">
+<h1>1.2 Introducción a la programación<a class="headerlink" href="#introduccion-a-la-programacion" title="Permalink to this headline">#</a></h1>
+<hr class="docutils" />
+<p>Si bien hemos explorado cómo intercambiar información con una computadora, es importante tener en cuenta que para los seres humanos no resulta tan sencillo escribir directamente una secuencia de “1s” y “0s” como forma de comunicación con estas máquinas. Es por ello que existe una manera más accesible de establecer esta comunicación: la programación.</p>
+<p>Hasta ahora, hemos observado que las computadoras tienen la capacidad de realizar cálculos y tomar decisiones lógicas a una velocidad increíblemente superior a la de los seres humanos, convirtiéndolas en herramientas de gran utilidad. Estas máquinas procesan datos mediante conjuntos de instrucciones conocidos como programas de computadora, y la creación de estos programas se denomina programación. Los programas guían a la computadora a través de una secuencia ordenada de acciones, especificadas por aquellos que son conocidos como programadores de computadoras.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Programación hoy en día</p>
+<img alt="Programación" src=images/Programa.jpg>
+</div>
+<p>Es importante destacar que no se debe confundir la programación con la mera computación. La diferencia entre estos dos términos puede ser equiparada a la diferencia entre conocer la fórmula para resolver una ecuación cuadrática y tener un conocimiento más profundo de la teoría de las ecuaciones en general.</p>
+<div class="section" id="los-lenguajes-de-programacion">
+<h2>1.2.1 Los lenguajes de programación<a class="headerlink" href="#los-lenguajes-de-programacion" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>La creación de un programa, que pueda ser interpretado y ejecutado por una computadora, requiere que las instrucciones sean escritas en un lenguaje de programación.</p>
+<p>En sus inicios, las computadoras solo interpretaban instrucciones en un lenguaje específico de bajo nivel conocido como <strong>lenguaje máquina</strong>. Este lenguaje consiste en cadenas de números binarios (0s y 1s), como vimos en la sección anterior. Sin embargo, resultaba difícil de comprender para los humanos. Con el fin de facilitar el trabajo de programación, se comenzaron a utilizar abreviaturas en inglés para representar operaciones básicas. Estas abreviaturas sentaron las bases de los lenguajes ensambladores. Se desarrollaron programas llamados ensambladores, que convertían los programas escritos en <strong>lenguaje ensamblador</strong> al lenguaje máquina, el cual es comprendido por las computadoras.</p>
+<p>Conforme aumentaba la complejidad de las tareas realizadas por las computadoras, surgió la necesidad de contar con un método más sencillo para programar. Fue así como se crearon los <strong>lenguajes de alto nivel</strong>, en los cuales era posible escribir instrucciones individuales para llevar a cabo tareas más complejas. Estos lenguajes de alto nivel permiten escribir instrucciones que se asemejan al inglés y contienen expresiones matemáticas de uso común. Los programas traductores, conocidos como compiladores, se encargan de convertir los programas escritos en lenguaje de alto nivel al lenguaje máquina.</p>
+<p>A lo largo de la historia de los lenguajes de programación, la idea principal ha sido simplificar, flexibilizar y hacer que la tarea de crear programas para computadoras sea cada vez más sencilla y portátil. Se ha buscado encontrar formas de programación más accesibles para los seres humanos, a fin de impulsar el desarrollo de la informática.</p>
+<div class="section" id="lenguajes-de-programacion-de-alto-nivel">
+<h3>Lenguajes de programación de alto nivel<a class="headerlink" href="#lenguajes-de-programacion-de-alto-nivel" title="Permalink to this headline">#</a></h3>
+<p>Como hemos visto, los lenguajes de alto nivel se caracteriza por expresar los algoritmos de una manera adecuada a la capacidad cognitiva humana, en lugar de la capacidad con que los ejecutan las máquinas.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Lenguajes de programación de alto nivel</p>
+<img alt="Lenguajes de programación" src=Imagenes/Programacion.png>
+</div>
+<p>El primer lenguaje de uso generalizado orientado a esto fue <b>FORTRAN</b> (<i>Formula Translator</i>), alrededor de 1956. Pocos años después se desarrolló un lenguaje para usos comerciales, donde lo que se deseaba es poder manejar datos a distintos niveles de agregación. Este lenguaje se llamaba <b>COBOL</b>(<i>COmon Bussiness Oriented Language</i>). Ambos lenguajes, o versiones modernizadas, sobreviven hasta nuestros días. Hacia finales de los años 50 se diseño un lenguaje, <b>ALGOL</b> (<i>ALGorithmic Oriented Language</i>) que resultó ser el modelo de desarrollo de prácticamente todos los lenguajes orientados a algoritmos de hoy en día, como <b>Pascal, C, C++, Java</b> y muchos más.</p>
+<p>Apesar que estos últimos lenguajes pueden ser más utilizados que los primeros, además que los primeros pueden ser considerados lenguajes “viejos”, no se consideran obsoletos. En particular FORTRAN sigue siendo muy utilizado en la física, debido que está especialmente adaptado al cálculo numérico y a la computación científica.</p>
+<p>El proceso de compilación de un programa escrito en lenguaje de alto nivel a un lenguaje máquina puede tardar un tiempo considerable en la computadora. Los <b>programas intérpretes</b> se desarrollaron para ejecutar programas en lenguaje de alto nivel de manera directa, esta modalidad de trabajo es equivalente pero se realiza instrucción por instrucción, es decir, se traduce a medida que es ejecutado el programa, esto ocasiona que la ejecución del programa sea más lenta en comparación a los programas compilados. Los lenguajes de secuencias de comandos, como los populares lenguajes <b>Python, JavaScript</b> y <b>PHP</b>, son procesados por intérpretes.</p>
+<p>El lenguaje de programación Python es el más llamativo para nuestros propositos en computación científica. Según el índice de la comundidad de programación <i>TIOBE</i>, este lenguaje  de programación se encuentra entre los primeros tres más usados, los otros puesto los ocupa Java (2°) y C (1°). El índice TIOBE puede consultarse en: <a class="reference external" href="https://www.tiobe.com/tiobe-index/">https://www.tiobe.com/tiobe-index/</a></p>
+<p>Como hemos visto, los lenguajes de programación de alto nivel se caracterizan por permitir expresar los algoritmos de una manera más adecuada a la capacidad cognitiva humana, en contraste con la capacidad de ejecución de las máquinas.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Lenguajes de programación de alto nivel</p>
+<img alt="Lenguajes de programación" src=images/Programacion.png>
+</div>
+<p>El primer lenguaje de programación de uso general orientado a este enfoque fue <strong>FORTRAN</strong> (<em>Formula Translator</em>), desarrollado alrededor de 1956. Pocos años después, surgió un lenguaje diseñado para aplicaciones comerciales que buscaba manejar datos a diferentes niveles de agregación, conocido como <strong>COBOL</strong> (<em>COmmon Business Oriented Language</em>). Tanto FORTRAN como COBOL, o versiones modernizadas de ellos, siguen siendo utilizados hasta el día de hoy. Hacia finales de los años 50, se desarrolló el lenguaje <strong>ALGOL</strong> (<em>ALGorithmic Oriented Language</em>), que se convirtió en el modelo de desarrollo para la mayoría de los lenguajes orientados a algoritmos que se utilizan en la actualidad, como <strong>Pascal</strong>, <strong>C</strong>, <strong>C++</strong>, <strong>Java</strong>, entre otros.</p>
+<p>A pesar de que los lenguajes más recientes pueden ser más ampliamente utilizados y se consideran más modernos en comparación con los primeros lenguajes, estos últimos no se consideran obsoletos. En particular, FORTRAN sigue siendo muy utilizado en el campo de la física, ya que está especialmente adaptado para el cálculo numérico y la computación científica.</p>
+<p>El proceso de compilación de un programa escrito en un lenguaje de alto nivel a lenguaje máquina puede llevar cierto tiempo en la computadora. Para abordar esta cuestión, se desarrollaron los <strong>programas intérpretes</strong>, que permiten ejecutar programas en lenguajes de alto nivel de forma directa. Esta modalidad de trabajo es equivalente, pero se realiza instrucción por instrucción, es decir, la traducción se lleva a cabo a medida que el programa se ejecuta. Esto implica que la ejecución del programa sea más lenta en comparación con los programas compilados. Los lenguajes de secuencias de comandos, como <strong>Python</strong>, <strong>JavaScript</strong> y <strong>PHP</strong>, son procesados por intérpretes.</p>
+<p>En el ámbito de la computación científica, el lenguaje de programación <strong>Python</strong> destaca significativamente. Según el índice de popularidad de programación TIOBE, Python se encuentra en el primer lugar de los lenguajes más utilizados, mientras que C, C++ y Javan ocupan los siguientes tres puestos respectivamente. El índice TIOBE se puede consultar en <a class="reference external" href="https://www.tiobe.com/tiobe-index/">https://www.tiobe.com/tiobe-index/</a>.</p>
+</div>
+<div class="section" id="caracteristicas-de-algunos-lenguajes-de-alto-nivel">
+<h3>Características de algunos lenguajes de alto nivel<a class="headerlink" href="#caracteristicas-de-algunos-lenguajes-de-alto-nivel" title="Permalink to this headline">#</a></h3>
+<p>Dependiendo del tipo de problema que queramos resolver (numérico, administrativo, de propósito general, inteligencia artificial, lógico) tenemos distintos lenguajes de programación que permiten representar de mejor manera los formatos de los datos y los recursos que requerimos para resolver el problema. Así, para procesos numéricos se requiere de bibliotecas muy extensas con funciones matemáticas, un manejo sencillo de matrices y, en general, de espacios de varias dimensiones, etc. A continuación se presenta una tabla comparativa con los lenguajes de programación que esten más orientados a la computación científica.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Lenguaje</p></th>
+<th class="text-left head"><p>Características</p></th>
+<th class="text-left head"><p>Ventajas</p></th>
+<th class="text-left head"><p>Desventajas</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FORTRAN</p></td>
+<td class="text-left"><p>Compilado</p></td>
+<td class="text-left"><p>Rápido</p></td>
+<td class="text-left"><p>Uso único en campos científicos</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td class="text-left"><p>POO</p></td>
+<td class="text-left"><p>Sintaxis simple</p></td>
+<td class="text-left"><p>Pocas librerias</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p>Tipado fuerte</p></td>
+<td class="text-left"><p>Lenguaje primitivo</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p>Sencillo de aprender</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-even"><td><p>C++</p></td>
+<td class="text-left"><p>Compilado</p></td>
+<td class="text-left"><p>Ejecución rápida</p></td>
+<td class="text-left"><p>Sintaxis compleja</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td class="text-left"><p>POO</p></td>
+<td class="text-left"><p>Tipado fuerte</p></td>
+<td class="text-left"><p>Compilación lenta</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p>Difícil de aprender</p></td>
+</tr>
+<tr class="row-odd"><td><p>Python</p></td>
+<td class="text-left"><p>Interpretado</p></td>
+<td class="text-left"><p>Sintaxis simple</p></td>
+<td class="text-left"><p>Lento</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td class="text-left"><p>Multiparadigma</p></td>
+<td class="text-left"><p>Muchas librerias</p></td>
+<td class="text-left"><p>Tipado dinámico</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p>Sencillo de aprender</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Actualmente se encuentran proyectos en desarrollo como <b>Cython</b>, un lenguaje de programación que su objetivo es tomar lo mejor de Python y C++ para combinarlo en un mismo lenguaje de programación, es tener Python a la velocidad de C. También el proyecto <b>F2PY</b> que puede se utilizado para implementar subrutinas de FORTRAN en Python.</p>
+</div>
+</div>
+<div class="section" id="paradigmas-de-programacion">
+<h2>Paradigmas de programación<a class="headerlink" href="#paradigmas-de-programacion" title="Permalink to this headline">#</a></h2>
+<p>Un paradigma de programación consiste en la forma en la que deben estructurarse y organizarse las tareas que debe realizar un programa. Representa un enfoque particular o filosofía para diseñar soluciones. Los paradigmas difieren unos de otros, en los conceptos y la forma de abstraer los elementos involucrados en un problema, así como en los pasos que integran su solución del problema. El paradigma de programación que actualmente es más utilizado es la “orientación a objetos” (POO).</p>
+<p>Los paradigmas de programación comunes son:</p>
+<ul class="simple">
+<li><p><strong>Imperativo:</strong> El programador instruye a la máquina cómo cambiar su estado.</p>
+<ul>
+<li><p><strong>Procedimental:</strong> Agrupa las instrucciones en procedimientos.</p></li>
+<li><p><strong>Orientado a objetos:</strong> Agrupa las instrucciones con la parte del estado en el que operan.</p></li>
+</ul>
+</li>
+<li><p><strong>Declarativo:</strong> El programador simplemente declara las propiedades del resultado deseado, pero no cómo calcularlo.</p>
+<ul>
+<li><p><strong>Funcional:</strong> El resultado deseado se declara como el valor de una serie de aplicaciones de función.</p></li>
+<li><p><strong>Lógica:</strong> El resultado deseado se declara como la respuesta a una pregunta sobre un sistema de hechos y reglas.</p></li>
+<li><p><strong>Matemático:</strong> El resultado deseado se declara como la solución de un problema de optimización.</p></li>
+<li><p><strong>Reactivo:</strong> El resultado deseado se declara con flujos de datos y la propagación del cambio.</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<p>Los lenguajes de programación son bastante variados, tienen características distintas e incluso diferentes maneras para estructurar los programas. En particular el lenguaje de programación de alto nivel <strong>Python</strong> es el de mayor interés para nosotros, esto se debe a su características para la utilización en ciencia.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter_1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1.1%20Representaci%C3%B3n%20de%20la%20informaci%C3%B3n.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">1.1 Representación de la información</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="1.3%20Introducci%C3%B3n%20a%20Python.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">1.3 Introducción a Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#los-lenguajes-de-programacion">1.2.1 Los lenguajes de programación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lenguajes-de-programacion-de-alto-nivel">Lenguajes de programación de alto nivel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-de-algunos-lenguajes-de-alto-nivel">Características de algunos lenguajes de alto nivel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paradigmas-de-programacion">Paradigmas de programación</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By QuantumByte Academy
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

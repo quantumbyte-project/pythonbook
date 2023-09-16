@@ -1,0 +1,996 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.3 Módulos &#8212; Introducción a la Programación en Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_4/4.3 Módulos y paquetes';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Capítulo 5. Librerias científicas I" href="../chapter_5/Cap%C3%ADtulo%205.%20Librerias%20cient%C3%ADficas%20I.html" />
+    <link rel="prev" title="4.2 Archivos" href="4.2%20Archivos.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/portada.webp" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/portada.webp" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introducción a la Programación en Python: Una guía para científicos e ingeníeros.
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_1/Cap%C3%ADtulo%201.%20Preliminares.html">Capítulo 1. Preliminares</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1/1.1%20Representaci%C3%B3n%20de%20la%20informaci%C3%B3n.html">1.1 Representación de la información</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1/1.2%20Introducci%C3%B3n%20a%20la%20programaci%C3%B3n.html">1.2 Introducción a la programación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1/1.3%20Introducci%C3%B3n%20a%20Python.html">1.3 Introducción a Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1/1.4%20Instalaci%C3%B3n%20de%20Python.html">1.4 Instalación de Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1/1.5%20Herramientas%20para%20programar%20en%20Python.html">1.5 Herramientas para programar en Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_2/Cap%C3%ADtulo%202.%20Conceptos%20b%C3%A1sicos.html">Capítulo 2. Conceptos básicos</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_2/2.3%20Funciones.html">2.3 Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_2/2.4%20Colecciones.html">2.4 Colecciones</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_3/Cap%C3%ADtulo%203.%20Estructuras%20de%20control.html">Capítulo 3. Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3/3.1%20Condicionales.html">3.1 Condicionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3/3.2%20Bucles.html">3.2 Bucles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Cap%C3%ADtulo%204.%20Excepciones%2C%20archivos%20y%20m%C3%B3dulos.html">Capítulo 4. Excepciones, archivos y módulos</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="4.1%20Excepciones.html">4.1 Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.2%20Archivos.html">4.2 Archivos</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.3 Módulos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_5/Cap%C3%ADtulo%205.%20Librerias%20cient%C3%ADficas%20I.html">Capítulo 5. Librerias científicas I</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5/5.2%20Numpy.html">5.2 Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5/5.3%20Matplotlib.html">5.3 Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5/5.4%20Sympy.html">5.4 Sympy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5/5.5%20Plotly.html">5.5 Plotly</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapter_4/4.3 Módulos y paquetes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter_4/4.3 Módulos y paquetes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>4.3 Módulos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importar-y-utilizar-modulos">4.3.1 Importar y utilizar módulos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mas-alla-de-la-libreria-estandar">4.3.2 Más allá de la librería estándar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones-de-modulos">Aplicaciones de módulos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculadora">Calculadora</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#existen-diversas-formas-en-las-que-podemos-utilizar-los-elementos-del-modulo">Existen diversas formas en las que podemos utilizar los elementos del módulo:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2">Ejemplo 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulos-de-la-libreria-estandar-de-python">Módulos de la librería estándar de Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#math">math</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#el-modulo-math-contiene-funciones-y-constantes-matematicas">El módulo <em><code class="docutils literal notranslate"><span class="pre">math</span></code></em> contiene funciones y constantes matemáticas.</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random">random</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#el-modulo-random-nos-sirve-para-utilizar-numeros-pseudoaleatorios">El módulo <em><code class="docutils literal notranslate"><span class="pre">random</span></code></em> nos sirve para utilizar números pseudoaleatorios.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="modulos">
+<h1>4.3 Módulos<a class="headerlink" href="#modulos" title="Permalink to this headline">#</a></h1>
+<hr class="docutils" />
+<p>Los módulos son componentes de código escritos por otras personas que cumplen funciones específicas y comunes en Python. Estos módulos son una parte esencial de la versatilidad de Python, ya que nos permiten acceder a funcionalidades y características adicionales sin tener que escribir todo el código desde cero.</p>
+<p>Existen una amplia variedad de módulos disponibles en la comunidad de Python que abarcan una gama de tareas y aplicaciones. Algunos ejemplos de módulos populares incluyen aquellos que generan números aleatorios, realizan operaciones matemáticas avanzadas, interactúan con bases de datos, manipulan archivos, realizan operaciones de red, trabajan con fechas y horas, entre otros. En específico, destacamos los siguientes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">math</span></code>: contiene operaciones matemáticas (seno, coseno, tangente).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">random</span></code>: generar números aleatorios.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">os</span></code>: permite acceder a funcionalidades dependientes del sistema operativo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">collections</span></code>: permite trabajar con datos de forma concisa y eficiente.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code>: proporciona varias funciones relacionadas con el tiempo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sys</span></code>: encargado de proveer variables y funcionalidades, directamente relacionadas con el intérprete.</p></li>
+</ul>
+<p>Estos módulos han sido desarrollados y probados por otros programadores, lo que nos brinda la confianza de utilizar código probado y optimizado para realizar tareas específicas. Al importar y utilizar módulos en nuestros propios programas, podemos aprovechar su funcionalidad sin tener que preocuparnos por los detalles internos de implementación.</p>
+<p>La comunidad de Python es muy activa y constantemente se desarrollan nuevos módulos y se actualizan los existentes. Esto significa que siempre hay una amplia selección de módulos disponibles para satisfacer nuestras necesidades y facilitar el desarrollo de aplicaciones más eficientes y poderosas en Python.</p>
+<div class="section" id="importar-y-utilizar-modulos">
+<h2>4.3.1 Importar y utilizar módulos<a class="headerlink" href="#importar-y-utilizar-modulos" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>Los módulos en Python son archivos externos que contienen código que puede ser utilizado en otros programas. Para importar un módulo en nuestro programa, utilizamos la palabra clave <code class="docutils literal notranslate"><span class="pre">impor</span></code>, seguida del nombre del archivo de módulo. Si deseamos, también podemos utilizar la declaración <code class="docutils literal notranslate"><span class="pre">as</span></code> para asignar un alias al módulo y facilitar su uso en nuestro código.</p>
+<p>Por ejemplo, si tenemos un archivo de módulo llamado <code class="docutils literal notranslate"><span class="pre">modulo.py</span></code>, podemos importarlo en nuestro programa de la siguiente manera:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Importación del módulo</p>
+</div>
+<div class="sd-card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">modulo</span> <span class="k">as</span> <span class="nn">md</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Utilización del módulo</p>
+</div>
+<div class="sd-card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">md</span><span class="o">.</span><span class="n">parte</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>En este caso, hemos importado el módulo <code class="docutils literal notranslate"><span class="pre">modulo.py</span></code> y le hemos asignado el alias <code class="docutils literal notranslate"><span class="pre">md</span></code>. Ahora podemos acceder a las funciones, clases y variables definidas en el módulo utilizando el prefijo <code class="docutils literal notranslate"><span class="pre">md</span></code>.</p>
+<p>Además de importar todo el módulo, también es posible importar partes específicas del mismo. En este caso, utilizamos la sintaxis <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">modulo</span> <span class="pre">import</span> <span class="pre">parte</span></code>. Por ejemplo:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Importación del módulo</p>
+</div>
+<div class="sd-card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">modulo</span> <span class="kn">import</span> <span class="n">parte</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Utilización del módulo</p>
+</div>
+<div class="sd-card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parte</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Aquí hemos importado únicamente la función <code class="docutils literal notranslate"><span class="pre">parte</span></code> del módulo <code class="docutils literal notranslate"><span class="pre">modulo.py</span></code>. Ahora podemos utilizar la función directamente en nuestro código sin necesidad de utilizar el prefijo del módulo.</p>
+<p>Estos fragmentos de código ejemplifican el uso de los módulos en Python. Al importar módulos, podemos aprovechar funcionalidades adicionales desarrolladas por otros programadores y reutilizar código existente, lo cual nos ayuda a ahorrar tiempo y mejorar la eficiencia en el desarrollo de nuestros programas.</p>
+</div>
+<div class="section" id="mas-alla-de-la-libreria-estandar">
+<h2>4.3.2 Más allá de la librería estándar<a class="headerlink" href="#mas-alla-de-la-libreria-estandar" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>Además de la extensa librería estándar de Python, existe un vasto ecosistema de módulos desarrollados por la comunidad para abordar diversas áreas y propósitos específicos. Estos módulos adicionales amplían las capacidades de Python y ofrecen soluciones especializadas para diferentes campos y aplicaciones.</p>
+<p>En el ámbito de la ciencia de datos, por ejemplo, existen módulos populares como NumPy, Pandas y Matplotlib, que brindan herramientas para el análisis de datos, manipulación de matrices, visualización y más. Para el aprendizaje automático (machine learning), podemos aprovechar módulos como Scikit-learn, TensorFlow o PyTorch, que proporcionan algoritmos y herramientas para desarrollar modelos predictivos y de aprendizaje automático.</p>
+<p>Para la computación científica, Python cuenta con módulos como SciPy y SymPy, que ofrecen funciones y algoritmos para cálculos científicos, optimización, álgebra simbólica y más. Además, hay módulos específicos para aplicaciones web como Django o Flask, para desarrollo de juegos como Pygame, para interacción con bases de datos como SQLAlchemy, entre muchos otros.</p>
+<p>Estos módulos adicionales han sido desarrollados por personas externas a Python, quienes se sintieron motivadas a contribuir al ecosistema y crear herramientas específicas para sus necesidades. Esta colaboración comunitaria enriquece enormemente el potencial de Python, ya que nos permite acceder a una amplia gama de módulos especializados y reutilizar el código existente en nuestras propias aplicaciones.</p>
+<p>Gracias a este enfoque de código abierto y colaborativo, Python se ha convertido en una opción popular en diversas industrias y disciplinas, ya que ofrece una gran flexibilidad y un rico conjunto de herramientas para abordar diferentes desafíos de programación.</p>
+<p>Algunos ejemplos son:</p>
+<ul class="simple">
+<li><p><em><code class="docutils literal notranslate"><span class="pre">Numpy</span></code></em>: cálculo numérico y el análisis de datos, especialmente para un gran volumen de datos.</p></li>
+<li><p><em><code class="docutils literal notranslate"><span class="pre">Pandas</span></code></em>: manejo y análisis de estructuras de datos.</p></li>
+<li><p><em><code class="docutils literal notranslate"><span class="pre">Plotly</span></code></em>: herramientas de visualización y análisis de datos.</p></li>
+<li><p><em><code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code></em>: creación de gráficos en dos dimensiones.</p></li>
+<li><p><em><code class="docutils literal notranslate"><span class="pre">Sympy</span></code></em>: matemáticas simbólicas.</p></li>
+<li><p><em><code class="docutils literal notranslate"><span class="pre">Scikit-learn</span></code></em>: algoritmos de clasificación, regresión, clustering y reducción de dimensionalidad.</p></li>
+</ul>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Numpy</div>
+<p class="sd-card-text">Creación de vectores y matrices grandes multidimensionales.</p>
+<p class="sd-card-text"><span class="sd-sphinx-override sd-btn sd-text-wrap stretched-link"><span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">Sitio web</span></span></p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Pandas</div>
+<p class="sd-card-text">Manejo y análisis de estructuras de datos.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Matplotlib</div>
+<p class="sd-card-text">Generación de gráficos a partir de datos contenidos en listas o arrays.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aplicaciones-de-modulos">
+<h2>Aplicaciones de módulos<a class="headerlink" href="#aplicaciones-de-modulos" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<div class="section" id="calculadora">
+<h3>Calculadora<a class="headerlink" href="#calculadora" title="Permalink to this headline">#</a></h3>
+<p>Se crea un módulo llamado <em><code class="docutils literal notranslate"><span class="pre">Calculadora</span></code></em>, con las siguientes funciones:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">calculadora.py</span></code></p>
+</div>
+<div class="sd-card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sumar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+
+<span class="k">def</span> <span class="nf">restar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">-</span><span class="n">y</span>
+
+<span class="k">def</span> <span class="nf">multiplicacion</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
+
+<span class="k">def</span> <span class="nf">division</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">/</span><span class="n">y</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No se puede dividir entre cero.&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">potencia</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;La potencia debe ser un número entero.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">operaciones.py</span></code></p>
+</div>
+<div class="sd-card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">calculadora</span> <span class="k">as</span> <span class="nn">cal</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cal</span><span class="o">.</span><span class="n">sumar</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cal</span><span class="o">.</span><span class="n">restar</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cal</span><span class="o">.</span><span class="n">multiplicacion</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cal</span><span class="o">.</span><span class="n">division</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cal</span><span class="o">.</span><span class="n">potencia</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="existen-diversas-formas-en-las-que-podemos-utilizar-los-elementos-del-modulo">
+<h4>Existen diversas formas en las que podemos utilizar los elementos del módulo:<a class="headerlink" href="#existen-diversas-formas-en-las-que-podemos-utilizar-los-elementos-del-modulo" title="Permalink to this headline">#</a></h4>
+<p>Realizamos una contracción del nombre <em><code class="docutils literal notranslate"><span class="pre">Calculadora</span></code></em>, a únicamente <em><code class="docutils literal notranslate"><span class="pre">cal</span></code></em>, para llamar a las funciones contenidas de una forma más rápida:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Calculadora</span> <span class="k">as</span> <span class="nn">cal</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cal</span><span class="o">.</span><span class="n">sumar</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cal</span><span class="o">.</span><span class="n">restar</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cal</span><span class="o">.</span><span class="n">multiplicacion</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cal</span><span class="o">.</span><span class="n">division</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cal</span><span class="o">.</span><span class="n">potencia</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">Calculadora</span> <span class="k">as</span> <span class="nn">cal</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">cal</span><span class="o">.</span><span class="n">sumar</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">cal</span><span class="o">.</span><span class="n">restar</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;Calculadora&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para importar funciones específicas del módulo <em><code class="docutils literal notranslate"><span class="pre">Calculadora</span></code></em>, realizamos lo siguiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Calculadora</span> <span class="kn">import</span> <span class="n">sumar</span><span class="p">,</span><span class="n">restar</span><span class="p">,</span><span class="n">potencia</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sumar</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">restar</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">potencia</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+0
+4
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para importar todos los elementos del módulo <em><code class="docutils literal notranslate"><span class="pre">Calculadora</span></code></em>, utilizamos el símbolo de asterisco de la siguiente forma:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Calculadora</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sumar</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">restar</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">multiplicacion</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">division</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">potencia</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+0
+4
+1.0
+4
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejemplo-2">
+<h3>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Permalink to this headline">#</a></h3>
+<p>Se crea un módulo llamado <em><code class="docutils literal notranslate"><span class="pre">Stats</span></code></em>, con las siguientes funciones:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">promedio</span><span class="p">(</span><span class="n">datos</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Realizamos una contracción del nombre <em><code class="docutils literal notranslate"><span class="pre">Stats</span></code></em>, a únicamente <em><code class="docutils literal notranslate"><span class="pre">st</span></code></em>, para llamar a la función contenida de una forma más rápida:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Stats</span> <span class="k">as</span> <span class="nn">st</span>
+
+<span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">promedio</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para importar funciones específicas del módulo <em><code class="docutils literal notranslate"><span class="pre">Stats</span></code></em>, realizamos lo siguiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Stats</span> <span class="kn">import</span> <span class="n">promedio</span>
+
+<span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">promedio</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para importar todos los elementos del módulo <em><code class="docutils literal notranslate"><span class="pre">Stats</span></code></em>, utilizamos el símbolo de asterisco de la siguiente forma:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Stats</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">promedio</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modulos-de-la-libreria-estandar-de-python">
+<h2>Módulos de la librería estándar de Python<a class="headerlink" href="#modulos-de-la-libreria-estandar-de-python" title="Permalink to this headline">#</a></h2>
+<div class="section" id="math">
+<h3>math<a class="headerlink" href="#math" title="Permalink to this headline">#</a></h3>
+<div class="section" id="el-modulo-math-contiene-funciones-y-constantes-matematicas">
+<h4>El módulo <em><code class="docutils literal notranslate"><span class="pre">math</span></code></em> contiene funciones y constantes matemáticas.<a class="headerlink" href="#el-modulo-math-contiene-funciones-y-constantes-matematicas" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Constante <span class="math notranslate nohighlight">\(\pi\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141592653589793
+</pre></div>
+</div>
+</div>
+</div>
+<p>Constante <span class="math notranslate nohighlight">\(e\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.718281828459045
+</pre></div>
+</div>
+</div>
+</div>
+<p>Función <span class="math notranslate nohighlight">\(sen(x)\)</span> y <span class="math notranslate nohighlight">\(cos(x)\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2246467991473532e-16
+6.123233995736766e-17
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como se puede apreciar, las constantes también son aproximaciones, por lo tanto, haremos uso de la función <em><code class="docutils literal notranslate"><span class="pre">round</span></code></em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Función exponencial <span class="math notranslate nohighlight">\(e^x\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.38905609893065
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="random">
+<h3>random<a class="headerlink" href="#random" title="Permalink to this headline">#</a></h3>
+<div class="section" id="el-modulo-random-nos-sirve-para-utilizar-numeros-pseudoaleatorios">
+<h4>El módulo <em><code class="docutils literal notranslate"><span class="pre">random</span></code></em> nos sirve para utilizar números pseudoaleatorios.<a class="headerlink" href="#el-modulo-random-nos-sirve-para-utilizar-numeros-pseudoaleatorios" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="nn">ra</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Un número aleatorio:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ra</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.795696592989977
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter_4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="4.2%20Archivos.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">4.2 Archivos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../chapter_5/Cap%C3%ADtulo%205.%20Librerias%20cient%C3%ADficas%20I.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Capítulo 5. Librerias científicas I</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importar-y-utilizar-modulos">4.3.1 Importar y utilizar módulos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mas-alla-de-la-libreria-estandar">4.3.2 Más allá de la librería estándar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones-de-modulos">Aplicaciones de módulos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculadora">Calculadora</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#existen-diversas-formas-en-las-que-podemos-utilizar-los-elementos-del-modulo">Existen diversas formas en las que podemos utilizar los elementos del módulo:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2">Ejemplo 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulos-de-la-libreria-estandar-de-python">Módulos de la librería estándar de Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#math">math</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#el-modulo-math-contiene-funciones-y-constantes-matematicas">El módulo <em><code class="docutils literal notranslate"><span class="pre">math</span></code></em> contiene funciones y constantes matemáticas.</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random">random</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#el-modulo-random-nos-sirve-para-utilizar-numeros-pseudoaleatorios">El módulo <em><code class="docutils literal notranslate"><span class="pre">random</span></code></em> nos sirve para utilizar números pseudoaleatorios.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By QuantumByte Academy
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
